@@ -13,9 +13,11 @@ This project was built using the esp-Azure "GetStarted" example. You will need t
 
 
 The M5Devices are programmed to do the following when one of the three buttons are pushed:
-Button 1: Read from the Grove Temperature/Humidity sensor (or use random values if the sensor is not present) and send it to Azure IoT Hub.
-Button 2: Rotate through an array of screen background colors
-Button 3: Send the currently displayed background color to Azure IoT Hub
+<UL>
+  <LI>Button 1: Read from the Grove Temperature/Humidity sensor (or use random values if the sensor is not present) and send it to Azure IoT Hub.</LI>
+  <LI>Button 2: Rotate through an array of screen background colors.</LI>
+  <LI>Button 3: Send the currently displayed background color to Azure IoT Hub.</LI>
+</UL>
 
 The M5Stack can also receive a message from Azure IoT Hub (note: your Azure IoT Hub must be using the "Standard pricing tier since the "free" pricing tier does not support bi-directional communication).  If the message contains one of the background colors, the device will change the background to the one specified in the message
 
