@@ -12,7 +12,7 @@ For M5Stack you need to get the following library. View the ReadMe for additiona
 This project was built using the esp-Azure "GetStarted" example. You will need to get the libraries and follow the instructions here: https://github.com/espressif/esp-azure
 
 
-The M5Devices are programmed to do the following when one of the three buttons are pushed:
+IoTHubTwoWayColor is the code for the M5Stack. The M5Devices are programmed to do the following when one of the three buttons are pushed:
 <UL>
   <LI>Button 1: Read from the Grove Temperature/Humidity sensor (or use random values if the sensor is not present) and send it to Azure IoT Hub.</LI>
   <LI>Button 2: Rotate through an array of screen background colors.</LI>
