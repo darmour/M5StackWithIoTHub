@@ -4,7 +4,7 @@ Use two M5Stack devices to send color messages back an forth using Azure IoT Hub
 
 The project connects two M5Stack devices to Azure IoT Hub.  When the devices are started up, they will try to connect to an array of wifi networks specified in the code - which you will need to modify for your available networks. Once wifi is connected, the device will connect to the Azure IoT Hub using the connection string specified in the code - which you need to modify. To obtain this value, you must first create the device twin in Azure. After you create the device twin you can find the connection string in the device details.
 
-You can use the Arduino IDE to program your M5Stack. You can find the details about this here: https://www.arduino.cc/en/Main/Software
+You can use the Arduino IDE to program your M5Stack. You can find the details about this here: https://www.arduino.cc/en/Main/Software<BR> (Note: If you plan to also use VSCode, don't download the Windows Store version, but rather the Windows Installer version).<BR><BR>
 
 If you want to use VS Code instead of the Arduino IDE, follow the instructions here: https://github.com/Microsoft/vscode-arduino
 
