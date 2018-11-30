@@ -1,5 +1,6 @@
 # M5StackWithIoTHub
-Use M5Stack to connect to Azure IoT Hub
+Use two M5Stack devices to send color messages back an forth using Azure IoT Hub<BR>
+  <IMG src='https://github.com/darmour/M5StackWithIoTHub/blob/master/IMG_20181130_131309981_HDR.jpg'> <BR>
 
 The project connects two M5Stack devices to Azure IoT Hub.  When the devices are started up, they will try to connect to an array of wifi networks specified in the code - which you will need to modify for your available networks. Once wifi is connected, the device will connect to the Azure IoT Hub using the connection string specified in the code - which you need to modify. To obtain this value, you must first create the device twin in Azure. After you create the device twin you can find the connection string in the device details.
 
