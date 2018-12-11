@@ -79,8 +79,6 @@ static void InitWifi()
   for (int i=0;((i>numSSID) || (hasWifi == false));i++)
   {
     
-
-      //Serial.printf("Connecting to %s...\n", ssid);
       M5.Lcd.printf("Connecting to %s...\n", ssid[i]);
       WiFi.begin(ssid[i], password[i]);
       while ((WiFi.status() != WL_CONNECTED) && (connectRetries<40)) {
@@ -145,8 +143,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result)
   if (result == IOTHUB_CLIENT_CONFIRMATION_OK)
   {
     Serial.println("Send Confirmation Callback finished.");
-    //M5.Lcd.print("Send Confirmation Callback finished.");
-    //M5.Lcd.print("\n");
+
   }
 }
 
@@ -162,8 +159,6 @@ static void MessageCallback(const char* payLoad, int size)
   int foundAt = 0;
   Serial.println("Message callback:");
   Serial.println(payLoad);
-  //M5.Lcd.print("Message callback:");
-  //M5.Lcd.print("\n");
 
   for(int i=0; i < ScreenColorCount;i++)
   {
@@ -177,7 +172,6 @@ static void MessageCallback(const char* payLoad, int size)
   }
   if (found)
   {
-      //const char *screenMsg = "Received request to change screen color\0";
       ClearScreen(ScreenColor565[foundAt],"Received request\n to change screen color");
         
    }
@@ -217,8 +211,6 @@ static int  DeviceMethodCallback(const char *methodName, const unsigned char *pa
 {
   LogInfo("Try to invoke method %s", methodName);
   M5.Lcd.printf("Try to invoke method %s", methodName);
-  //M5.Lcd.print(methodName);
-
   const char *responseMessage = "\"Successfully invoke device method\"";
   int result = 200;
 
@@ -235,19 +227,11 @@ static int  DeviceMethodCallback(const char *methodName, const unsigned char *pa
     M5.Lcd.print("\n\n stopping...\n\n");
   }
   
-
-  
   else if (strcmp(methodName, "clear") == 0)
   {
     LogInfo("clear");
-   // M5.Speaker.setVolume(2);
-    //M5.Speaker.setBeep(500, 10); 
-    //M5.Speaker.beep();
     M5.Speaker.tone(NOTE_DH2, 200); //frequency 3000, with a duration of 200ms
     ClearScreen(TFT_BLACK, "Clear Screen Command Received");
-
-  
-
   }
   else
   {
@@ -343,12 +327,11 @@ void CheckButtonPress()
     //Button C Pressed
     if(M5.BtnC.wasPressed())
     {
-      //M5.Lcd.printf("wasPressed B \r\n");
+
       char messagePayload[MESSAGE_MAX_LEN];
       snprintf(messagePayload,MESSAGE_MAX_LEN, messageColorData, DEVICE_ID, messageCount++, "Color", ScreenColorText[ScreenColorIndex],ScreenColor565[ScreenColorIndex]);
 
       EVENT_INSTANCE* message = Esp32MQTTClient_Event_Generate(messagePayload, MESSAGE);
-      //Esp32MQTTClient_Event_AddProp(message, "Color", ScreenColorText[ScreenColorIndex]);
       Esp32MQTTClient_SendEventInstance(message);
       ClearScreen(ScreenColor565[ScreenColorIndex], "color sent....");
    
